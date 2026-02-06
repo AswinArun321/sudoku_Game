@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sudoku Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div id="bg-animation"></div>
+    <div class="container">
+        <!-- Intro Screen -->
+        <div id="intro-screen">
+            <h1>Sudoku</h1>
+            <p class="subtitle">Select your challenge level</p>
+            <div class="intro-buttons">
+                <button class="hero-btn easy" onclick="startGame('easy')">
+                    <span class="btn-label">Easy</span>
+                    <span class="btn-desc">Relaxing game with many clues</span>
+                </button>
+                <button class="hero-btn medium" onclick="startGame('medium')">
+                    <span class="btn-label">Medium</span>
+                    <span class="btn-desc">The standard Sudoku experience</span>
+                </button>
+                <button class="hero-btn hard" onclick="startGame('hard')">
+                    <span class="btn-label">Hard</span>
+                    <span class="btn-desc">True test for Sudoku masters</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Game Screen (Hidden by default) -->
+        <div id="game-screen" style="display: none;">
+            <div class="header">
+                <button class="back-btn" onclick="showIntro()" title="Back to Menu">←</button>
+                <h1>Sudoku</h1>
+                <button id="theme-toggle" onclick="toggleTheme()" title="Toggle Theme">🌓</button>
+            </div>
+            <div class="game-info">
+                <p id="timer">Time: 00:00</p>
+            </div>
+
+            <div id="sudoku-grid"></div>
+
+            <div class="buttons">
+                <button onclick="checkSolution()">Check Solution</button>
+                <button onclick="resetGame()">New Game</button>
+            </div>
+
+            <p id="message"></p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>
